@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configs de pacotes
 var ConnectionString = builder.Configuration.GetConnectionString("FilmeConecction");
 // Configs do banco
-builder.Services.AddDbContext<FilmeContext>(opts => opts.UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString)));
+builder.Services.AddDbContext<FilmeContext>(opts => opts.UseLazyLoadingProxies().UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString)));
 // Configs do mapper (DTOs)
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Configs de Json

@@ -10,5 +10,10 @@ public class Cinema
 
     [Required]
     public string Nome {  get; set; }
+    
+    public int EnderecoId { get; set; }
+    //Relação com a entidade Endereco
+    public virtual Endereco Endereco {  get; set; }
+    public virtual ICollection<Sessao> Sessoes { get; set; }
 
 }
